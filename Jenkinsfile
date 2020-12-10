@@ -12,7 +12,7 @@ pipeline {
 
         stage("test") {
             steps {
-                echo "testing app..." > test.logs
+                echo "testing app..." 
             }
         }
 
