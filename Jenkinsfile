@@ -14,7 +14,13 @@ pipeline {
             }
         }
 
-        stage("deploy") {
+        stage("deploy-staging") {
+            steps {
+                echo "deploying app..."
+            }
+        }
+        
+        stage("deploy-prod") {
             steps {
                 echo "deploying app..."
             }
