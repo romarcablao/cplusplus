@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("build") {
             steps {
-                echo "building app..." > build.logs
+                echo "building app..."
             }
         }
 
