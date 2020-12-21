@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "aws"
+        label "jenkins-worker-centos"
     }
 
     stages {
