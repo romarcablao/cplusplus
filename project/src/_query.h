@@ -70,8 +70,12 @@ void NumHoursQuery(string Fullname)
 	{
 		helper.spielNoRecords();
 	}
-	helper.spielLineSeparator();
-	totalRendered_Time(Fullname, Total_Hours_Query, Total_Minutes_Query, Total_Seconds_Query);
+
+	if (counter > 0)
+	{
+		helper.spielLineSeparator();
+		totalRendered_Time(Fullname, Total_Hours_Query, Total_Minutes_Query, Total_Seconds_Query);
+	}
 
 	timeCountQuery.close();
 }
