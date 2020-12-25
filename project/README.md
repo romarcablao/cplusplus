@@ -13,7 +13,7 @@ _Note that this project might only work on a windows machine._
 
 ### How it works?
 
-If you have an IDE like DevC++, you can open the `main.cpp` and compile it. You can also compile and run the program using the code snippet below. Note that you should have `g++ library` installed on your machine for it to work.
+If you have an IDE like DevC++, you can open the `app.cpp` and compile it. You can also compile and run the program using the code snippet below. Note that you should have `g++ library` installed on your machine for it to work.
 
 ```bash
     g++ -o app app.cpp      # compile
