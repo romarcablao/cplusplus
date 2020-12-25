@@ -7,6 +7,26 @@
 #ifndef _timerendered
 #define _timerendered
 
+void totalRendered_Time(string Fullname, int Total_Hours_Query, int Total_Minutes_Query, int Total_Seconds_Query)
+{
+
+	if (Total_Seconds_Query >= 60)
+	{
+		Total_Minutes_Query += Total_Seconds_Query / 60;
+		Total_Seconds_Query %= 60;
+	}
+
+	if (Total_Minutes_Query >= 60)
+	{
+		Total_Hours_Query += Total_Minutes_Query / 60;
+		Total_Minutes_Query %= 60;
+	}
+
+	helper.spielLineSeparator();
+	cout << "TOTAL    -->    Hours: " << Total_Hours_Query << "\tMinute/s: " << Total_Minutes_Query << "\tSecond/s: " << Total_Seconds_Query << endl;
+	helper.spielLineSeparator();
+}
+
 void timeRendered_perDay(string FullName, string monthIN, int dayNumIN, int yearIN, int H_timeIN, int M_timeIN, int S_timeIN, int H_timeOUT, int M_timeOUT, int S_timeOUT)
 {
 
@@ -18,7 +38,7 @@ void timeRendered_perDay(string FullName, string monthIN, int dayNumIN, int year
 	mm_Total = M_timeOUT - M_timeIN;
 	ss_Total = S_timeOUT - S_timeIN;
 
-	//For Seconds
+	// for seconds
 	if (ss_Total > 60)
 	{
 		ss_Total -= 60;
@@ -29,7 +49,8 @@ void timeRendered_perDay(string FullName, string monthIN, int dayNumIN, int year
 		ss_Total += 59;
 		mm_Total -= 1;
 	}
-	//For Minutes
+
+	//for minutes
 	if (mm_Total > 60)
 	{
 		mm_Total -= 60;
@@ -57,8 +78,7 @@ void NumHours(string FullName)
 
 	ifstream readTime(filenameRead.c_str());
 	while (readTime >> dayIN >> monthIN >> dayNumIN >> yearIN >> H_timeIN >> M_timeIN >> S_timeIN >> dashIN >> dayOUT >> monthOUT >> dayNumOUT >> yearOUT >> H_timeOUT >> M_timeOUT >> S_timeOUT >> dashOUT)
-	{ /**get data**/
-	}
+		;
 	readTime.close();
 
 	timeRendered_perDay(FullName, monthIN, dayNumIN, yearIN, H_timeIN, M_timeIN, S_timeIN, H_timeOUT, M_timeOUT, S_timeOUT);

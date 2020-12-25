@@ -1,83 +1,70 @@
 /* Romar Cablao
  * BS Computer Science
  * Project: Don Bosco - Daily Time Record
- * Main Module
+ * Main Module (Entrypoint)
  */
 
+// import global headers and variables
 #include "src/_global.h"
-#include "src/_getdate.h"
+#include "src/_helper.h"
+
+// import local functions
+#include "src/_date.h"
 #include "src/_timerendered.h"
 #include "src/_timein.h"
 #include "src/_timeout.h"
 #include "src/_query.h"
 
+// entrypoint
 int main()
 {
+	init();
+	Employee employee; helper.again = 'Y';
 	
-	init();	string Fname, Lname, FullName, yesORno;
-	
-again:
-	int choice;
-	cout << "\n             DON BOSCO INSTITUTE OF ARTS AND SCIENCES           " << endl;
-	cout << "\n-----------------------DAILY TIME RECORD------------------------" << endl;
-	cout << "\n     1.TIME IN      2.TIME OUT       3.NUMBER OF HOURS QUERY    " << endl;
-	cout << "----------------------------------------------------------------" << endl;
-
-	cout << "CHOOSE (1-3): ";
-	cin >> choice;
-	cin.ignore();
-
-	cout << "----------------------------------------------------------------" << endl;
-
-	if (choice > 0 && choice < 4)
+	while (helper.again == 'Y' || helper.again == 'y')
 	{
-		cout << "FIRSTNAME: ";
-		getline(cin, Fname);
-		cout << "LASTNAME : ";
-		getline(cin, Lname);
 
-		FullName = Fname + " " + Lname;
-		transform(FullName.begin(), FullName.end(), FullName.begin(), ::toupper);
-	}
+		helper.spielHeader();
+		std::cout << "CHOOSE (1-3): ";
+		std::cin >> helper.choice;
+		std::cin.ignore();
+		helper.spielLineSeparator();
 
-	switch (choice)
-	{
-	case 1:
-		timeIN(FullName);
+		if (helper.choice > 0 && helper.choice < 4)
+		{
+			std::cout << "FIRSTNAME: ";
+			getline(std::cin, employee.firstname);
+			std::cout << "LASTNAME : ";
+			getline(std::cin, employee.lastname);
+		}
 
-		break;
-	case 2:
-		timeOUT(FullName);
+		// switch case base on user choice
+		switch (helper.choice)
+		{
+		case 1:
+			// call time in module
+			timeIN(employee.fullname());
+			break;
+		case 2:
+			// call time out module
+			timeOUT(employee.fullname());
+			break;
+		case 3:
+			// call query module
+			NumHoursQuery(employee.fullname());
+			break;
+		default:
+			// print invalid choice
+			helper.spielInvalidChoice();
+			break;
+		}
 
-		break;
-	case 3:
-		NumHoursQuery(FullName);
-
-		break;
-	default:
-		cout << "----------------------------------------------------------------" << endl;
-		cout << "----------------------NOT IN THE CHOICES!-----------------------" << endl;
-		cout << "----------------------------------------------------------------" << endl;
-		break;
-	}
-
-	cout << "\n----------------------------------------------------------------" << endl;
-	cout << "PUNCH AGAIN [y/n]: ";
-	cin >> yesORno;
-	cout << "----------------------------------------------------------------\n"
-		 << endl;
-
-	if (yesORno == "y" || yesORno == "Y")
-	{
-		system("clear");
-		goto again;
-	}
-	else if (yesORno == "n" || yesORno == "N")
-	{
-		return 0;
+		helper.spielLineSeparator();
+		std::cout << "PUNCH AGAIN [y/n]: ";
+		std::cin >> helper.again;
+		helper.spielLineSeparator();
+		system("cls");
 	}
 
 	return 0;
 }
-
-

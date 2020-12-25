@@ -20,20 +20,15 @@ void timeIN(string FullName)
 
 	if (if_time_in_is_ok == "-IN-")
 	{
-		cout << "-------------------YOU'VE FORGOT TO TIME-OUT--------------------" << endl;
-		cout << "----------------------------------------------------------------" << endl;
+		helper.spielForgotToTimeOut();
 	}
 	else
 	{
 		ofstream writeRecord(filename.c_str(), ios::app);
-
 		writeRecord << dateToday();
 		writeRecord << "IN- ";
 		writeRecord.close();
-
-		cout << "----------------------------------------------------------------" << endl;
-		cout << "----------------------------RECORDED----------------------------" << endl;
-		cout << "----------------------------------------------------------------" << endl;
+		helper.spielRecorded();
 	}
 }
 

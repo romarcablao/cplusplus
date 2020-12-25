@@ -14,10 +14,13 @@
 #include <algorithm>
 using namespace std;
 
+// directory and file configuration
 string Destination = "data/";
 string EmployeeLogsDir = "EmployeeLogs/";
 string TimeRecordDir = "DailyTimeRecord/";
+string LogsFile = "Logs Date.txt";
 
+// initialize directories
 void init()
 {
 	system("IF NOT exist data (mkdir data)");
