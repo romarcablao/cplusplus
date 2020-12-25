@@ -20,4 +20,4 @@ If you have an IDE like DevC++, you can open the main.cpp and compile it. You ca
     app.exe                 // run
 ```
 
-![Screenshot](data/dtr-screenshot.png.png)
+![Screenshot](data/dtr-screenshot.png)
