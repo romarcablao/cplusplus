@@ -13,7 +13,16 @@ _Note that this project might only work on a windows machine._
 
 ### How it works?
 
-If you have an IDE like DevC++, you can open the `app.cpp` and compile it. You can also compile and run the program using the code snippet below. Note that you should have `g++ library` installed on your machine for it to work.
+If you have an IDE like DevC++, you can open the `app.cpp` and compile it. The program's entrypoint is the `app.cpp`. All other modules are saved in the `src` directory:
+
+1. Global Imports - `src/_global.h`
+2. GetDate - `src/_getdate.h`
+3. Time Rendered - `src/_timerendered.h`
+4. Time In - `src/_timein.h`
+5. Time Out - `src/_timeout.h`
+6. Query - `src/_query.h`
+
+You can also compile and run the program using the code snippet below. Note that you should have `g++ library` installed on your machine for it to work.
 
 ```bash
     g++ -o app app.cpp      # compile
